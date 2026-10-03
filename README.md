@@ -10,4 +10,3 @@ Open `index.html` directly in a browser, or use VS Code Live Server.
 - GitHub: https://github.com/saravanakumar166
 - Email: saravanakumar16607@gmail.com
 
-No profile photo or SK avatar is used.
