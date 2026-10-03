@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Saravanakumar S — AI & Data Science student and aspiring software developer portfolio.">
+<title>Saravanakumar S — AI & Data Science</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07090d;--surface:#0d1118;--surface2:#111722;--line:rgba(255,255,255,.09);
+  --text:#f5f7fb;--muted:#9aa4b2;--green:#7cffb2;--cyan:#72e6ff;
+  --max:1180px;--ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;background-image:linear-gradient(rgba(255,255,255,.7) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.7) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,#000,transparent 75%);z-index:-3}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+::selection{background:var(--green);color:#06100a}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+.progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--green),var(--cyan));width:0;z-index:100}
+.nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(940px,calc(100% - 28px));height:62px;border:1px solid var(--line);background:rgba(7,9,13,.72);backdrop-filter:blur(20px);border-radius:18px;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 10px 0 18px;box-shadow:0 18px 60px rgba(0,0,0,.25)}
+.logo{font-family:"Space Grotesk";font-weight:700;letter-spacing:-.04em;font-size:18px}.logo i{color:var(--green);font-style:normal}
+.navlinks{display:flex;gap:5px}.navlinks a{font-size:13px;color:#aab3c1;padding:10px 13px;border-radius:10px;transition:.3s var(--ease)}
+.navlinks a:hover,.navlinks a.active{color:#fff;background:rgba(255,255,255,.07)}
+.nav-cta{padding:10px 16px;border-radius:11px;background:#fff;color:#080a0e;font-size:13px;font-weight:700;transition:.3s var(--ease)}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(255,255,255,.12)}
+.hero{min-height:100vh;display:flex;align-items:center;padding:145px 0 75px;position:relative;overflow:hidden;background:#07090d url("hero-workspace.jpg") center right/cover no-repeat}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#07090d 0%,rgba(7,9,13,.97) 24%,rgba(7,9,13,.78) 48%,rgba(7,9,13,.30) 72%,rgba(7,9,13,.08) 100%),linear-gradient(0deg,rgba(7,9,13,.82),transparent 38%);z-index:0}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 45%,rgba(124,255,178,.08),transparent 25%);pointer-events:none;z-index:0}
+.orb,.orb2{display:none}
+.hero-grid{width:min(var(--max),calc(100% - 40px));margin:auto;position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,760px) minmax(260px,1fr);align-items:center;gap:30px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:#c2cad5;font-size:11px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:22px;padding:9px 13px;border:1px solid rgba(124,255,178,.18);border-radius:999px;background:rgba(8,14,15,.35);backdrop-filter:blur(10px)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 18px var(--green);animation:pulse 2s infinite}
+h1{font-family:"Space Grotesk";font-size:clamp(56px,7.1vw,98px);line-height:.9;letter-spacing:-.075em;max-width:820px}
+.gradient{background:linear-gradient(100deg,#fff 10%,#fff 36%,var(--green) 65%,var(--cyan));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradient 7s linear infinite}
+.hero-copy{margin-top:28px;color:#b0bac7;font-size:17px;max-width:640px}
+.actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}.hero-meta{display:flex;gap:0;margin-top:42px;flex-wrap:wrap}.hero-meta span{display:flex;flex-direction:column;gap:4px;padding:0 24px;border-right:1px solid rgba(255,255,255,.12)}.hero-meta span:first-child{padding-left:0}.hero-meta span:last-child{border-right:0}.hero-meta b{font-size:10px;letter-spacing:.08em;color:#d4dae2}.hero-meta small{font-size:9px;text-transform:uppercase;letter-spacing:.13em;color:#6e7988}
+.hero-side{min-height:450px;position:relative}
+.hero-side-note{position:absolute;right:0;bottom:28px;width:205px;padding:17px 18px;border-left:2px solid var(--green);background:rgba(7,10,13,.45);backdrop-filter:blur(12px);color:#aeb8c5;font-size:12px}.hero-side-note strong{display:block;color:#fff;font-family:"Space Grotesk";font-size:17px;margin-bottom:5px}.hero-side-note span{color:var(--green)}
+.hero-side-mark{position:absolute;right:5%;top:15%;font-family:"Space Grotesk";font-size:clamp(70px,10vw,150px);font-weight:700;line-height:.8;letter-spacing:-.1em;color:rgba(255,255,255,.055);writing-mode:vertical-rl}
+.hero-visual,.showcase-name,.showcase-role,.showcase-line,.showcase-bottom,.orbit{display:none}
+.section{padding:120px 0;position:relative}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:48px}
+.kicker{font-size:11px;color:var(--green);letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:13px}
+h2{font-family:"Space Grotesk";font-size:clamp(36px,5vw,58px);letter-spacing:-.055em;line-height:1.02}
+.section-intro{max-width:430px;color:#8f99a8;font-size:14px}
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:20px}
+.panel{border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:22px;padding:28px;transition:.4s var(--ease)}
+.panel:hover{border-color:rgba(124,255,178,.25);transform:translateY(-4px)}
+.about-main{min-height:310px;display:flex;flex-direction:column;justify-content:space-between}.about-main p{font-size:20px;line-height:1.5;color:#c7ced8;max-width:600px}
+.fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.fact{background:#0b0f15;padding:25px}.fact small{display:block;color:#687384;text-transform:uppercase;letter-spacing:.12em;font-size:10px;margin-bottom:8px}.fact strong{font-family:"Space Grotesk";font-size:18px}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.skill{min-height:190px}.skill-num{color:#4c5665;font-family:ui-monospace;font-size:12px}.skill h3{font-family:"Space Grotesk";font-size:22px;margin:35px 0 10px}.skill p{color:#8993a2;font-size:13px}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:17px}.tag{font-size:11px;color:#aeb8c5;border:1px solid var(--line);padding:6px 9px;border-radius:8px;background:rgba(255,255,255,.025)}
+.project{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
+.project-copy{min-height:440px;display:flex;flex-direction:column;justify-content:space-between}.project-label{color:var(--green);font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:700}.project h3{font-family:"Space Grotesk";font-size:clamp(34px,4vw,52px);letter-spacing:-.05em;line-height:1.02;margin:18px 0}.project p{color:#98a2b0;max-width:580px}
+.project-visual{min-height:440px;border-radius:24px;border:1px solid var(--line);background:radial-gradient(circle at 60% 35%,rgba(124,255,178,.13),transparent 26%),#0b0f15;position:relative;overflow:hidden;display:grid;place-items:center}
+.visual-ring{width:250px;height:250px;border:1px solid rgba(124,255,178,.25);border-radius:50%;position:absolute;animation:spin 18s linear infinite}.visual-ring:before,.visual-ring:after{content:"";position:absolute;border:1px solid rgba(114,230,255,.2);border-radius:50%;inset:25px}.visual-ring:after{inset:65px}
+.visual-core{width:95px;height:95px;border-radius:50%;background:radial-gradient(circle,#fff 0%,var(--green) 15%,rgba(124,255,178,.08) 68%,transparent 70%);box-shadow:0 0 70px rgba(124,255,178,.3);z-index:2;animation:core 3s ease-in-out infinite}
+.signal{position:absolute;width:80%;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);transform:rotate(-23deg);opacity:.6;animation:scan 3s ease-in-out infinite}
+.project-badge{position:absolute;top:22px;right:22px;font-size:10px;padding:7px 9px;border:1px solid rgba(124,255,178,.2);border-radius:9px;color:var(--green);background:rgba(124,255,178,.05)}
+.journey{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.journey .panel{min-height:220px}.year{font-family:ui-monospace;color:var(--green);font-size:11px}.journey h3{font-family:"Space Grotesk";font-size:19px;margin:28px 0 8px}.journey p{color:#818b99;font-size:13px}
+.contact{border:1px solid var(--line);border-radius:28px;padding:60px;background:linear-gradient(130deg,rgba(124,255,178,.07),rgba(114,230,255,.03) 40%,rgba(255,255,255,.02));position:relative;overflow:hidden}
+.contact:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(124,255,178,.08);filter:blur(60px);right:-100px;top:-120px}
+.contact h2{max-width:650px}.contact p{color:#909aa8;margin:20px 0 30px;max-width:570px}.contact-links{display:flex;gap:10px;flex-wrap:wrap}
+footer{padding:35px 0 50px;color:#697383;font-size:12px;display:flex;justify-content:space-between;border-top:1px solid var(--line)}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}.reveal.show{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(20px);animation:up .7s var(--ease) forwards}.stagger>*:nth-child(2){animation-delay:.08s}.stagger>*:nth-child(3){animation-delay:.16s}.stagger>*:nth-child(4){animation-delay:.24s}
+@keyframes up{to{opacity:1;transform:none}}@keyframes pulse{50%{box-shadow:0 0 4px var(--green)}}@keyframes float{50%{transform:translate3d(0,25px,0)}}@keyframes gradient{to{background-position:200% center}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes core{50%{transform:scale(1.12);filter:brightness(1.2)}}@keyframes scan{50%{transform:rotate(-23deg) translateX(20px);opacity:.15}} 
+@media(max-width:900px){.navlinks{display:none}.hero-grid,.about-grid,.project{grid-template-columns:1fr}.hero{padding-top:125px}.hero-card{max-width:650px}.skills{grid-template-columns:1fr 1fr}.journey{grid-template-columns:1fr 1fr}.section-head{display:block}.section-intro{margin-top:18px}}
+@media(max-width:600px){.container{width:min(100% - 28px,var(--max))}.nav{height:56px}.nav-cta{display:none}h1{font-size:51px}.hero{min-height:850px;padding-top:120px;background-position:64% center}.hero-copy{font-size:15px}.section{padding:85px 0}.skills,.journey{grid-template-columns:1fr}.panel{padding:22px}.project-copy,.project-visual{min-height:380px}.hero-meta{gap:14px}.hero-meta span{padding:0 13px}.hero-meta span:first-child{padding-left:0}.hero-meta b{font-size:9px}.contact{padding:32px 24px}footer{display:block}.fact-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<nav class="nav">
+  <a href="#home" class="logo">SARAVANAKUMAR<span><i>.</i></span></a>
+  <div class="navlinks">
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#journey">Journey</a>
+  </div>
+  <a href="#contact" class="nav-cta">Let's talk ↗</a>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div class="stagger">
+      <div class="eyebrow"><span class="dot"></span> Available for opportunities</div>
+      <h1>Hello, I’m<br><span class="gradient">Saravanakumar S.</span></h1>
+      <p class="hero-copy">I build intelligent solutions with AI, data and modern software technologies—turning ideas into practical applications and meaningful digital experiences.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/saravanakumar166" target="_blank" rel="noopener">View GitHub ↗</a>
+        <a class="btn" href="#projects">Explore projects ↓</a>
+      </div>
+      <div class="hero-meta">
+        <span><b>AI &amp; DATA SCIENCE</b><small>Focus</small></span>
+        <span><b>TAMIL NADU, INDIA</b><small>Location</small></span>
+        <span><b>PYTHON · JAVA · SQL · WEB</b><small>Stack</small></span>
+      </div>
+    </div>
+    <div class="hero-side" aria-hidden="true">
+      <div class="hero-side-mark">AI</div>
+      <div class="hero-side-note"><strong>Turning ideas into useful solutions.</strong>AI · Data · Software<br><span>Build / Learn / Grow</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+<div class="container">
+  <div class="section-head reveal"><div><div class="kicker">01 / About</div><h2>A curious builder<br>with a practical mindset.</h2></div><p class="section-intro">Turning coursework, ideas, and emerging technologies into projects that solve concrete problems.</p></div>
+  <div class="about-grid">
+    <div class="panel about-main reveal"><p>I’m pursuing B.Tech in Artificial Intelligence and Data Science, building my foundation across programming, web technologies, databases, ERP systems and Generative AI.</p><div class="tags"><span class="tag">Problem solving</span><span class="tag">Team collaboration</span><span class="tag">Continuous learning</span></div></div>
+    <div class="fact-grid reveal">
+      <div class="fact"><small>Education</small><strong>B.Tech AI &amp; Data Science</strong></div>
+      <div class="fact"><small>Based in</small><strong>Pudukkottai, Tamil Nadu</strong></div>
+      <div class="fact"><small>Core interest</small><strong>AI + Software Development</strong></div>
+      <div class="fact"><small>Approach</small><strong>Learn → Build → Improve</strong></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="skills">
+<div class="container">
+  <div class="section-head reveal"><div><div class="kicker">02 / Toolkit</div><h2>Tools I use<br>to build.</h2></div><p class="section-intro">A growing technical toolkit across programming, databases, web development, AI, and application workflows.</p></div>
+  <div class="skills">
+    <article class="panel skill reveal"><span class="skill-num">01</span><h3>Programming</h3><p>Building logic and applications with a focus on readable fundamentals.</p><div class="tags"><span class="tag">Python</span><span class="tag">Java</span></div></article>
+    <article class="panel skill reveal"><span class="skill-num">02</span><h3>Data &amp; DB</h3><p>Working with structured data and database technologies.</p><div class="tags"><span class="tag">SQL</span><span class="tag">NoSQL</span><span class="tag">Data Handling</span></div></article>
+    <article class="panel skill reveal"><span class="skill-num">03</span><h3>Web</h3><p>Creating responsive interfaces and learning full-stack development workflows.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div></article>
+    <article class="panel skill reveal"><span class="skill-num">04</span><h3>AI &amp; GenAI</h3><p>Exploring AI concepts and Generative AI as practical development tools.</p><div class="tags"><span class="tag">Generative AI</span><span class="tag">AI Concepts</span></div></article>
+    <article class="panel skill reveal"><span class="skill-num">05</span><h3>Applications</h3><p>Understanding structured application workflows and ERP-based systems.</p><div class="tags"><span class="tag">ERP Systems</span><span class="tag">Report Generation</span></div></article>
+    <article class="panel skill reveal"><span class="skill-num">06</span><h3>Workflow</h3><p>Using developer tools to learn, prototype, debug, and continuously improve.</p><div class="tags"><span class="tag">VS Code</span><span class="tag">Problem Solving</span></div></article>
+  </div>
+</div>
+</section>
+
+<section class="section" id="projects">
+<div class="container">
+  <div class="section-head reveal"><div><div class="kicker">03 / Selected work</div><h2>One project.<br>Real application thinking.</h2></div><p class="section-intro">A project focused on organizing student information and making annual report generation more structured and accessible.</p></div>
+  <div class="project">
+    <article class="panel project-copy reveal">
+      <div><div class="project-label">Featured project · ERP</div><h3>Student Annual<br>Report System</h3><p>An ERP-based application concept designed to manage student information and support structured annual report generation workflows.</p><div class="tags"><span class="tag">ERP</span><span class="tag">Data Handling</span><span class="tag">Report Generation</span><span class="tag">Application Workflow</span></div></div>
+      <a class="btn" href="https://github.com/saravanakumar166" target="_blank" rel="noopener" style="width:max-content">View GitHub ↗</a>
+    </article>
+    <div class="project-visual reveal"><div class="project-badge">SYSTEM / DATA / REPORT</div><div class="visual-ring"></div><div class="signal"></div><div class="visual-core"></div></div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="journey">
+<div class="container">
+  <div class="section-head reveal"><div><div class="kicker">04 / Journey</div><h2>Learning in motion.</h2></div><p class="section-intro">Education, certifications, technical exploration, and hands-on project work form the current foundation.</p></div>
+  <div class="journey">
+    <article class="panel reveal"><span class="year">CURRENT</span><h3>B.Tech AI &amp; Data Science</h3><p>VSB College of Engineering and Technical Campus</p></article>
+    <article class="panel reveal"><span class="year">CERTIFICATION</span><h3>Python Programming</h3><p>CODETECH certification with a focus on Python programming.</p></article>
+    <article class="panel reveal"><span class="year">LEARNING</span><h3>GenAI + Java + Python</h3><p>Infosys learning and certification across emerging and programming technologies.</p></article>
+    <article class="panel reveal"><span class="year">BEYOND CODE</span><h3>Team &amp; Communication</h3><p>Technical activities, collaboration, problem solving, and continuous learning.</p></article>
+  </div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+  <div class="contact reveal">
+    <div class="kicker">05 / Contact</div>
+    <h2>Have an idea, project, or opportunity?</h2>
+    <p>I’m interested in software development, AI/ML, backend opportunities, and projects where I can learn while building useful solutions.</p>
+    <div class="contact-links">
+      <a class="btn primary" href="mailto:saravanakumar16607@gmail.com">Email me ↗</a>
+      <a class="btn" href="https://github.com/saravanakumar166" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="tel:+919952944759">Call ↗</a>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+
+<footer class="container"><span>© 2026 Saravanakumar S</span><span>Designed &amp; built with curiosity.</span></footer>
+
+<script>
+const progress=document.getElementById('progress');
+addEventListener('scroll',()=>{const h=document.documentElement;progress.style.width=(scrollY/(h.scrollHeight-innerHeight)*100)+'%'},{passive:true});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const links=[...document.querySelectorAll('.navlinks a')];
+const sections=links.map(a=>document.querySelector(a.getAttribute('href')));
+const navObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.remove('active'));const a=document.querySelector('.navlinks a[href="#'+e.target.id+'"]');if(a)a.classList.add('active')}}),{rootMargin:'-40% 0px -50% 0px'});
+sections.forEach(s=>navObserver.observe(s));
+</script>
+</body>
+</html>
